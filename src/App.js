@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
+  const API_KEY = "4dab3feed643eb675ee3df9bdf7306c8";
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ function App() {
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
     try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=4dab3feed643eb675ee3df9bdf7306c8&units=metric`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
       let response = await fetch(url);
       let data = await response.json();
       setWeather(data);
@@ -36,7 +37,7 @@ function App() {
 
   const getWeaherByCity = async () => {
     try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4dab3feed643eb675ee3df9bdf7306c8&units=metric`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
       let response = await fetch(url);
       let data = await response.json();
       setWeather(data);
