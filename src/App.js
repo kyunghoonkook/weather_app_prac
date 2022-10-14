@@ -19,6 +19,7 @@ function App() {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       getWeatherByCurrentLocation(lat, lon);
+      console.log(test);
     });
   };
 
